@@ -47,6 +47,15 @@ ENVOY_ORG = "envoyproxy"
 
 ENVOY_REPO = "envoy"
 
+# Contains the list of Envoy extensions to build-in.
+# To override with local configuration just pass
+# `--override_repository=envoy_build_config=/PATH/TO/CONFIG` to Bazel or
+# persist the option in `user.bazelrc`.
+local_repository(
+    name = "envoy_build_config",
+    path = "envoy_build_config",
+)
+
 # To override with local envoy, just pass `--override_repository=envoy=/PATH/TO/ENVOY` to Bazel or
 # persist the option in `user.bazelrc`.
 http_archive(
